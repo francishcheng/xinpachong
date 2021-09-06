@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html >
+<head>
+<style>
+	.links{
+		margin: 0px auto;
+		text-align: center;
+		font-size: 30px;
+	}
+</style>
+</head>
+<body>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/echarts@5/dist/echarts.min.js"></script>
+	<link rel="stylesheet"  href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+	<div class="links">
+
+		<a href="{% url 'days' %}">days &nbsp;</a>| &nbsp;
+		<a href="{% url 'weeks' %}">weeks &nbsp;</a> |  &nbsp;
+		<a href="{% url 'months' %}">months</a>
+	</div>	
+
+	<div style="height:500px; width: 100%;" class="contrainer">
+
+		{% block charts %}
+		{% endblock %}
+	</div>
+</body>
+</html>
