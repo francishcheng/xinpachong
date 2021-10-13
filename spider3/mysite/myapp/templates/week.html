@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      * {
+        margin: auto 0;
+      }
+      table {
+        border-collapse: collapse;
+        border: 1px solid black;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 40px;
+       
+        margin-left: auto;
+        margin-right: auto;
+}
+      }
+      tr {
+        border: solid 1px black;
+      }
+      tr:nth-child(even) {
+        background-color: #f2f2f2;
+      }
+      td {
+        border: 1px solid black;
+      }
+      th {
+        border: 1px solid black;
+      }
+      #container {
+        width: 800px;
+        margin: 0 auto;
+      }
+      #week,
+      #batch,
+      #province {
+        margin: 0 auto;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 40px;
+      }
+      #footer {
+        margin: 0 auto;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 40px;
+      }
+      ul.pagination {
+        display: inline-block;
+        padding: 0;
+        margin: 0;
+      }
+      ul.pagination li a:hover:not(.active) {
+        background-color: #ddd;
+      }
+
+      ul.pagination li {
+        display: inline;
+      }
+
+      ul.pagination li a {
+        color: black;
+        float: left;
+        padding: 8px 16px;
+        text-decoration: none;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <title>周报</title>
+  </head>
+  <body>
+    <div id="container">
+      <div id="week">
+        {{collection_name}}
+        <div id="province">{{province_msg}}</div>
+        <div>
+        <br>
+        </div>
+        <div id="batch">{{batch_msg}}</div>       
+      </div>
+      <div id="footer">
+        <ul class="pagination">
+          <li><a href="#">«</a></li>
+          {% for collection in collections%}
+          <li><a href="{{collection}}">{{ collection }}</a></li>
+          {% endfor %}
+          <li><a href="#">»</a></li>
+        </ul>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <script>
+
+    document.getElementById("batch").innerHTML = marked(document.getElementById("batch").innerHTML)
+    document.getElementById("province").innerHTML = marked(document.getElementById("province").innerHTML)
+
+  </script>
+</html>
